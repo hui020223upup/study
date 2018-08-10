@@ -1,11 +1,10 @@
-package com.study;
+package com.study.util;
 
 
 import com.study.init.Inits;
 import com.study.mybatismapper.TOrderMapper;
 import com.study.pojo.TOrder;
 import com.study.pojo.TOrderExample;
-import com.study.util.UniqueIDUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
