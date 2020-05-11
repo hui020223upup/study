@@ -11,6 +11,8 @@ import java.util.List;
  * Created by wanghh on 2018-7-26.
  */
 public class MultipleKeysTableShardingAlgorithmImpl implements MultipleKeysTableShardingAlgorithm {
+
+    @Override
     public Collection<String> doSharding(Collection<String> tableNames, Collection<ShardingValue<?>> shardingValues) {
         List<String> shardingSuffix = new ArrayList<String>();
         long partId = 0;

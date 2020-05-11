@@ -12,6 +12,7 @@ public class StaticProxy implements BuyHouse {
         this.buyHouse = buyHouse;
     }
 
+    @Override
     public void buyHouse() {
         System.out.println("买房前准备");
         buyHouse.buyHouse();

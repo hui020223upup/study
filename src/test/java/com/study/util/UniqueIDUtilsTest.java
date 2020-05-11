@@ -30,7 +30,7 @@ public class UniqueIDUtilsTest {
     }
 
     @Test
-    public void bulidOrderIdTest() {
+    public void buildOrderIdTest() {
 
         UniqueIDUtils uniqueIDUtils = new UniqueIDUtils();
         TOrder tOrder = new TOrder();
@@ -38,7 +38,7 @@ public class UniqueIDUtilsTest {
         long userId = 120000001;
         for (int i = 0; i < 64; i++) {
             tOrder.setUserId(userId + i);
-            long orderId = uniqueIDUtils.bulidOrderId(tOrder.getUserId());
+            long orderId = uniqueIDUtils.buildOrderId(tOrder.getUserId());
             System.out.println("第" + (i + 1) + "次userId=" + Long.toBinaryString(tOrder.getUserId()));
             System.out.println("第" + (i + 1) + "次orderId=" + Long.toBinaryString(orderId));
             tOrder.setOrderId(orderId);

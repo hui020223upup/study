@@ -7,7 +7,9 @@ import java.net.InetAddress;
 
 public final class UniqueIDUtils {
     private static final Logger logger = LoggerFactory.getLogger(UniqueIDUtils.class);
-    // 取IP地址最后一段作为多机分隔段
+    /**
+     * 取IP地址最后一段作为多机分隔段
+     */
     private static long SERVER_ID = 255L;
 
     /**
@@ -115,7 +117,7 @@ public final class UniqueIDUtils {
     }
 
 
-    public long bulidOrderId(long userId) {
+    public long buildOrderId(long userId) {
         //取用户id后4位
         userId = userId & 15;
         //先取60位唯一id

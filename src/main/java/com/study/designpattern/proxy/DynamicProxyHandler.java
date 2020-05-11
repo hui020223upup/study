@@ -13,6 +13,7 @@ public class DynamicProxyHandler implements InvocationHandler {
         this.object = object;
     }
 
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("买房前准备");
         Object result = method.invoke(object, args);

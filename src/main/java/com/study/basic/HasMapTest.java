@@ -31,8 +31,6 @@ public class HasMapTest {
         thread1.start();
         thread2.start();
 
-        Thread.currentThread().sleep(1000);
-
         for (int i = 0; i < 50; i++) {
             //如果key和value不同，说明在两个线程put的过程中出现异常。
             if (!String.valueOf(i).equals(map.get(String.valueOf(i)))) {
