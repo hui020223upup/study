@@ -125,7 +125,6 @@ public class NioServerDemo {
                 System.out.println("服务端接收:" + new String(byteBuffer.array()));
                 // 自动回复（此处可添加对应业务逻辑）
                 socketChannel.write(ByteBuffer.wrap("hello client,im waiting for you!".getBytes()));
-                log.info("服务端回复:hello client,im waiting for you!");
                 System.out.println("服务端回复:hello client,im waiting for you!");
 
             } else {
