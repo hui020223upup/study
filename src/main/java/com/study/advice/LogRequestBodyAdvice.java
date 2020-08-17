@@ -1,6 +1,6 @@
 package com.study.advice;
 
-import com.study.interceptor.TimedAccessLogInterceptor;
+import com.study.interceptor.RequestBodyContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -35,7 +35,7 @@ public class LogRequestBodyAdvice implements RequestBodyAdvice {
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         //仅仅打印请求参数
-        TimedAccessLogInterceptor.requestTL.set(body);
+        RequestBodyContextHolder.setContext(body);
         return body;
     }
 

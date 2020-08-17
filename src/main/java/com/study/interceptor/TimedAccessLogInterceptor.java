@@ -18,10 +18,6 @@ public class TimedAccessLogInterceptor implements HandlerInterceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(TimedAccessLogInterceptor.class);
 
     private static final ThreadLocal<Long> TL_BEGIN_TIME = new ThreadLocal<>();
-    /**
-     * save request body
-     */
-    public static final ThreadLocal requestTL = new ThreadLocal();
 
     /**
      * save response body
@@ -54,7 +50,7 @@ public class TimedAccessLogInterceptor implements HandlerInterceptor {
             String query = request.getQueryString();
             String referer = HttpUtils.getReferer(request);
             String param = HttpUtils.getParam(request);
-            Object paramBodyObject = requestTL.get();
+            Object paramBodyObject = RequestBodyContextHolder.get();
             String paramBody = paramBodyObject == null ? null : JSONUtils.toJSONString(paramBodyObject);
             String cookie = HttpUtils.getCookie(request);
             String remoteIp = HttpUtils.getIp(request);
