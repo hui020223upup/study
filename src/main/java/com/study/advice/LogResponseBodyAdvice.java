@@ -1,6 +1,6 @@
 package com.study.advice;
 
-import com.study.interceptor.TimedAccessLogInterceptor;
+import com.study.interceptor.LogContextHolder;
 import org.springframework.core.MethodParameter;
 
 import org.springframework.http.MediaType;
@@ -22,7 +22,7 @@ public class LogResponseBodyAdvice implements ResponseBodyAdvice {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        TimedAccessLogInterceptor.responseTL.set(body);
+        LogContextHolder.setResponseBody(body);
         return body;
     }
 }

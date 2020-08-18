@@ -1,10 +1,9 @@
 package com.study.advice;
 
-import com.study.interceptor.RequestBodyContextHolder;
+import com.study.interceptor.LogContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJacksonInputMessage;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
@@ -29,13 +28,13 @@ public class LogRequestBodyAdvice implements RequestBodyAdvice {
 
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage httpInputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        return new MappingJacksonInputMessage(httpInputMessage.getBody(), httpInputMessage.getHeaders());
+        return httpInputMessage;
     }
 
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         //仅仅打印请求参数
-        RequestBodyContextHolder.setContext(body);
+        LogContextHolder.setRequestBody(body);
         return body;
     }
 
